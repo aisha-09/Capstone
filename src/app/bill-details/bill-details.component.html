@@ -1,0 +1,147 @@
+<!-- <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="bills" routerLinkActive="active" class="nav-link">Bill List</a>
+  
+      </li>
+      <li class="nav-item">
+        <a routerLink="create-bill" routerLinkActive="active" class="nav-link">Add Bill</a>
+  
+      </li>
+    </ul>
+  
+  </nav> -->
+  <!-- <div class="container text-center" > -->
+
+<!-- <div class="container"> -->
+    <!-- <div class="row">
+<h3>View Bill Details</h3>
+</div>
+<div #content>
+    <div>
+        <label><b>Bill ID </b>{{bill.id}}</label>
+
+    </div>
+    <div>
+        <label><b>Vendor Name </b>{{bill.vendor_name}}</label>
+        
+    </div>
+    <div>
+        <label><b>Bill Date</b>{{bill.bill_date}}</label>
+        
+    </div>
+    <div>
+        <label><b>Bill Status</b>{{bill.status}}</label>
+        
+    </div>
+    <div *ngFor="let item of bill.items">
+        <label><b>Item :</b>{{item.name}}</label>
+        <label><b>Price :</b>{{item.price}}</label>
+        <label><b>Quantity :</b>{{item.quantity}}</label>    
+    </div>
+    <div>
+        <label><b>Taxes</b>{{bill.taxes}}</label>     
+    </div>
+    <div>
+        <label><b>Discounts</b>{{bill.discounts}}</label>     
+    </div>
+    <div>
+        <label><b>Total Price To Be Paid :</b>{{bill.total_amt}}</label>
+    </div>
+    <button (click)="makePdf()">Generate PDF</button>
+
+</div>
+</div> -->
+
+                        
+<div class="receipt-content contaier" id="content" #content >
+    <div class="container bootstrap snippets bootdey" >
+      <div class="row">
+        <div class="col-md-12">
+          <div class="invoice-wrapper">
+            <div class="intro">
+              Hi <strong>{{bill.vendor_name}}</strong>, 
+              <br>
+              This is the receipt for a payment of <strong>{{bill.total_amt}}</strong> (Rupees) for your works
+            </div>
+  
+            <div class="payment-info">
+              <div class="row">
+                <div class="col-sm-6">
+                  <span>Invoice Number</span>
+                  <strong>{{bill.id}}</strong>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <span>Payment Date</span>
+                  <strong>{{bill.bill_date}}</strong>
+                </div>
+              </div>
+            </div>
+  
+            <div class="payment-details">
+              <div class="row">
+                <div class="col-sm-6">
+                  <span>Client</span>
+                  <strong>
+                    {{bill.client_name}}
+                  </strong>
+                  <p>
+                    {{bill.client_address}}
+                  </p>
+                </div>
+              </div>
+            </div>
+  
+            <div class="line-items">
+              <div class="headers clearfix">
+                <div class="row">
+                  <div class="col-xs-4">Description</div>
+                  <div class="col-xs-3">Quantity</div>
+                  <div class="col-xs-5 text-right">Amount</div>
+                </div>
+              </div>
+              <div class="items">
+                <div class="row item" *ngFor="let item of bill.items">
+                  <div class="col-xs-4 desc">
+                    {{item.name}}
+                  </div>
+                  <div class="col-xs-3 qty">
+                    {{item.quantity}}
+                  </div>
+                  <div class="col-xs-5 amount text-right">
+                    {{item.price}}
+                  </div>
+                </div>
+              </div>
+              <div class="total text-right">
+                <div class="field">
+                  <strong>Taxes</strong> <span>{{bill.taxes}}</span>
+                </div>
+                <div class="field">
+                  <strong>Discount</strong> <span>{{bill.discounts}}</span>
+                </div>
+                <div class="field grand-total">
+                  Total <span>Rs.{{bill.total_amt}}</span>
+                </div>
+              </div>
+  
+              <div class="print">
+                <button (click)="makePdf()">Generate PDF</button>
+              </div>
+  
+              <div class="field grand-total">
+                <span>Thank you</span>
+              </div>
+            </div>
+          </div>         
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div class="container">
+      <span>Your one step bill generation application</span>
+    </div>
+  </footer>
+

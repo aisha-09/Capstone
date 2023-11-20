@@ -1,0 +1,45 @@
+<!-- <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="bills" routerLinkActive="active" class="nav-link">Bill List</a>
+  
+      </li>
+      <li class="nav-item">
+        <a routerLink="create-bill" routerLinkActive="active" class="nav-link">Add Bill</a>
+  
+      </li>
+    </ul>
+  
+  </nav> -->
+
+
+<div class="col-md-6 offset-md-3">
+    <h3>Update Bill</h3>
+<form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label>Issue Date</label>
+        <input type="text" class="form-control" id="date" [(ngModel)]="bill.bill_date"
+        name="bill_date">
+    </div>
+    <div class="form-group">
+        <label>Vendor Name</label>
+        <input type="text" class="form-control" id="vendor" [(ngModel)]="bill.vendor_name"
+        name="vendorName">
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+        <input type="text" class="form-control" id="" [(ngModel)]="bill.status"
+        name="Status">
+    </div>
+    <br>
+    <button class="btn btn-success" type="submit">Generate Bill</button>
+
+</form>
+
+</div>
+
+<footer class="footer">
+    <div class="container">
+      <span>Your one step bill generation application</span>
+    </div>
+  </footer>

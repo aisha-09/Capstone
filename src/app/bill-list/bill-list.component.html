@@ -1,0 +1,48 @@
+<!-- <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="bills" routerLinkActive="active" class="nav-link">Bill List</a>
+  
+      </li>
+      <li class="nav-item">
+        <a routerLink="create-bill" routerLinkActive="active" class="nav-link">Add Bill</a>
+  
+      </li>
+    </ul>
+  
+  </nav> -->
+<div class="container text-center" >
+<h2>Bill-List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Bill ID</th>
+            <th>User ID</th>
+            <th>Vendor Name</th>
+            <th>Bill Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let bill of bills">
+            <td>{{bill.id}}</td>
+            <td>{{bill.user_id}}</td>
+            <td>{{bill.vendor_name}}</td>
+            <td>{{bill.status}}</td>
+            <td>
+                <button (click)="updateBill(bill.id)" class="btn btn-info" style="margin-left: 6px;">Update</button>
+                <button (click)="deleteBill(bill.id)" class="btn btn-danger" style="margin-left: 6px;">Delete</button>
+                <button (click)="viewBill(bill.id)" class="btn btn-info" style="margin-left: 6px;">View Details</button>
+
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<footer class="footer">
+    <div class="container">
+      <span>Your one step bill generation application</span>
+    </div>
+  </footer>
